@@ -15,6 +15,13 @@ run_node() {
   echo "Starting rank $RANK on $HOST"
   ssh -o StrictHostKeyChecking=no -i "$KEY_PATH" ec2-user@"$HOST" bash -s << EOF
     set -e
+    # Ensure the repository is cloned and up to date
+    if [ ! -d ~/machinelearningcc ]; then
+      git clone https://github.com/cmbarrosb/machinelearningcc.git ~/machinelearningcc
+    else
+      cd ~/machinelearningcc
+      git pull origin main
+    fi
     cd ~/machinelearningcc
     source venv/bin/activate
     export MASTER_ADDR=$MASTER_IP
