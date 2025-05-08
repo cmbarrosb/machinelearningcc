@@ -1,0 +1,9 @@
+Your public IP: 98.116.204.94/32
+Using VPC_ID=vpc-0dabef63c6da78fde, SG_ID=sg-04ee4e641db5b1220
+Using SUBNET_ID=subnet-0e2ed6e236ceb0251
+Authorizing SSH ingress...
+Launching EC2 instance in subnet subnet-0e2ed6e236ceb0251...
+Instance ID: i-0d29cbcbd4c217fae
+Instance is running!
+Address: ec2-3-94-129-141.compute-1.amazonaws.com
+SSH in with: ssh -i ~/.ssh/mlcc-key.pem ec2-user@ec2-3-94-129-141.compute-1.amazonaws.com
