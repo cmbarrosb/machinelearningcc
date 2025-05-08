@@ -1,5 +1,3 @@
-
-
 #!/usr/bin/env python3
 """
 plot_results.py
@@ -8,6 +6,7 @@ Parses training metrics from log files and plots comparisons for time and throug
 """
 
 import re
+import numpy as np
 import matplotlib.pyplot as plt
 
 # ---- Log files ----
@@ -31,19 +30,39 @@ times = [time_single, time_parallel]
 throughputs = [imgs_single, imgs_parallel]
 
 # ---- Plot Training Time ----
-plt.figure()
-plt.bar(methods, times)
+plt.figure(figsize=(6,4))
+bars = plt.bar(methods, times)
+ymin, ymax = min(times) * 0.98, max(times) * 1.02
+plt.ylim(ymin, ymax)
 plt.ylabel('Training Time (s)')
 plt.title('Single-node vs DataParallel Training Time')
-plt.savefig('time_comparison.png')
+plt.grid(axis='y', linestyle='--', alpha=0.5)
+for bar, val in zip(bars, times):
+    plt.text(
+        bar.get_x() + bar.get_width()/2,
+        val + (ymax - ymin) * 0.01,
+        f"{val:.2f}s",
+        ha='center', va='bottom'
+    )
+plt.savefig('time_comparison_zoom.png')
 plt.close()
 
 # ---- Plot Throughput ----
-plt.figure()
-plt.bar(methods, throughputs)
+plt.figure(figsize=(6,4))
+bars = plt.bar(methods, throughputs)
+ymin, ymax = min(throughputs) * 0.98, max(throughputs) * 1.02
+plt.ylim(ymin, ymax)
 plt.ylabel('Images per Second')
 plt.title('Single-node vs DataParallel Throughput')
-plt.savefig('throughput_comparison.png')
+plt.grid(axis='y', linestyle='--', alpha=0.5)
+for bar, val in zip(bars, throughputs):
+    plt.text(
+        bar.get_x() + bar.get_width()/2,
+        val + (ymax - ymin) * 0.01,
+        f"{val:.2f}",
+        ha='center', va='bottom'
+    )
+plt.savefig('throughput_comparison_zoom.png')
 plt.close()
 
 print("Plots saved to time_comparison.png and throughput_comparison.png")
