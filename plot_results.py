@@ -10,8 +10,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # ---- Log files ----
-SINGLE_LOG = 'train_single.log'
-PARALLEL_LOG = 'train_parallel.log'
+SINGLE_LOG = 'logs/train_single.log'
+PARALLEL_LOG = 'logs/train_parallel.log'
 
 def parse_metrics(log_file):
     """Extract Time, Accuracy, Images/sec from a log file."""
@@ -65,4 +65,4 @@ for bar, val in zip(bars, throughputs):
 plt.savefig('throughput_comparison_zoom.png')
 plt.close()
 
-print("Plots saved to time_comparison.png and throughput_comparison.png")
+print("Plots saved to time_comparison_zoom.png and throughput_comparison_zoom.png")
