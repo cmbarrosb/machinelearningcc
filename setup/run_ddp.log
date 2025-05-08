@@ -1,0 +1,7 @@
+Starting rank 0 on 3.94.129.141
+python3: can't open file 'train_ddp.py': [Errno 2] No such file or directory
+Starting rank 2 on 44.210.21.75
+Starting rank 1 on 3.214.184.67
+python3: can't open file 'train_ddp.py': [Errno 2] No such file or directory
+python3: can't open file 'train_ddp.py': [Errno 2] No such file or directory
+Distributed training launched. Logs in logs/train_ddp_rank0.log, train_ddp_rank1.log, train_ddp_rank2.log

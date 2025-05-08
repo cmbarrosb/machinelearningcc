@@ -1,9 +1,9 @@
-Launched instances: i-02b7e1fdd6b339b0a	i-043bb3fa45f557e4a
+Launched instances: i-0787cbb09cc2cfff7	i-0305e0c0a38cdb212
 Waiting for instances to be in running state...
 Instances are running. Retrieving public DNS names and IP addresses...
-Instance ID: i-02b7e1fdd6b339b0a
-  Public DNS: 
-  Public IP: None
-Instance ID: i-043bb3fa45f557e4a
-  Public DNS: 
-  Public IP: None
+Instance ID: i-0787cbb09cc2cfff7
+  Public DNS: ec2-3-214-184-67.compute-1.amazonaws.com
+  Public IP: 3.214.184.67
+Instance ID: i-0305e0c0a38cdb212
+  Public DNS: ec2-44-210-21-75.compute-1.amazonaws.com
+  Public IP: 44.210.21.75

@@ -7,6 +7,7 @@ SUBNET_ID="subnet-0e2ed6e236ceb0251"
 INSTANCE_TYPE="t3.micro"
 COUNT=2
 LOG_FILE="cluster_setup.log"
+HOSTS_FILE="setup/cluster_hosts.txt"
 
 exec > >(tee -a "$LOG_FILE") 2>&1
 
@@ -28,10 +29,6 @@ aws ec2 wait instance-running --instance-ids $INSTANCE_IDS
 
 echo "Instances are running. Retrieving public DNS names and IP addresses..."
 
-for INSTANCE_ID in $INSTANCE_IDS; do
-  DNS_NAME=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID --query "Reservations[0].Instances[0].PublicDnsName" --output text)
-  IP_ADDR=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID --query "Reservations[0].Instances[0].PublicIpAddress" --output text)
-  echo "Instance ID: $INSTANCE_ID"
-  echo "  Public DNS: $DNS_NAME"
-  echo "  Public IP: $IP_ADDR"
-done
+echo "# Cluster worker instances" > "$HOSTS_FILE"
+echo "i-0787cbb09cc2cfff7 ec2-3-214-184-67.compute-1.amazonaws.com 3.214.184.67" >> "$HOSTS_FILE"
+echo "i-0305e0c0a38cdb212 ec2-44-210-21-75.compute-1.amazonaws.com 44.210.21.75" >> "$HOSTS_FILE"
