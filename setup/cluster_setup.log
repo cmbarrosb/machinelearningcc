@@ -1,0 +1,9 @@
+Launched instances: i-02b7e1fdd6b339b0a	i-043bb3fa45f557e4a
+Waiting for instances to be in running state...
+Instances are running. Retrieving public DNS names and IP addresses...
+Instance ID: i-02b7e1fdd6b339b0a
+  Public DNS: 
+  Public IP: None
+Instance ID: i-043bb3fa45f557e4a
+  Public DNS: 
+  Public IP: None
